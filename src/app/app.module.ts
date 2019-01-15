@@ -10,9 +10,11 @@ import { NgReduxFormModule } from '@angular-redux/form';
 import { StoreModule } from './store/store.module';
 import { AppComponent } from './app.component';
 import { MoviesModule } from './movies/movies.module';
+import { AppActions } from './app.actions';
 
 @NgModule({
 	declarations: [AppComponent],
+	exports: [],
 	imports: [
 		CommonModule,
 		BrowserModule,
@@ -26,7 +28,7 @@ import { MoviesModule } from './movies/movies.module';
 		StoreModule,
 		MoviesModule
 	],
-	providers: [],
+	providers: [AppActions],
 	bootstrap: [AppComponent]
 })
 export class AppModule {}

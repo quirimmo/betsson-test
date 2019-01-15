@@ -22,7 +22,9 @@ export class StoreModule {
 	) {
 		store.configureStore(
 			StoreReducer,
-			{},
+			{
+				isLoading: true
+			},
 			[thunk],
 			devTools.isEnabled() ? [devTools.enhancer()] : []
 		);
