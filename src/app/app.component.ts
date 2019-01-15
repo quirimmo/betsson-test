@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { MoviesDAOService } from './movies/movies.dao';
 import { MoviesActions } from './movies/movies.actions';
 import { AppActions } from './app.actions';
 import { select } from '@angular-redux/store';
 import { Observable } from 'rxjs';
+import Movie from './movies/movie.model';
 
 @Component({
 	selector: 'app-root',
@@ -15,6 +15,8 @@ export class AppComponent implements OnInit {
 
 	@select(['isLoading'])
 	readonly isLoading$: Observable<boolean>;
+	@select(['movies'])
+	readonly movies$: Observable<Movie[]>;
 
 	constructor(
 		private moviesActions: MoviesActions,

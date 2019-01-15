@@ -1,0 +1,6 @@
+<section class="movie-item-card">
+	<div class="movie-item-card-title">{{ movie.name }}</div>
+	<div>{{ movie.rate }}</div>
+	<img mat-card-image [src]="'assets/' + movie.img" alt="{{ movie.name }}" />
+	<div>{{ movie.genres.join(',') }}</div>
+</section>
