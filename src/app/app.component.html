@@ -1,8 +1,4 @@
-<div class="app-wrapper container-fluid">
-	<div *ngIf="(isLoading$ | async); else loaded_content">
-		THE APP IS LOADING
-	</div>
-	<ng-template #loaded_content>
-		<movies-list [movies]="movies$ | async"> </movies-list>
-	</ng-template>
+<div>
+	<app-loader></app-loader>
+	<router-outlet></router-outlet>
 </div>

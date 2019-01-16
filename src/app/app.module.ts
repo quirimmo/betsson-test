@@ -10,7 +10,10 @@ import { NgReduxFormModule } from '@angular-redux/form';
 import { StoreModule } from './store/store.module';
 import { AppComponent } from './app.component';
 import { MoviesModule } from './movies/movies.module';
-import { AppActions } from './app.actions';
+import { AppLoaderModule } from './app-loader/app-loader.module';
+import { AppRoutes } from './app.routes';
+import { RoutesModule } from './routes/routes.module';
+import { ResolversModule } from './resolvers/resolvers.module';
 
 @NgModule({
 	declarations: [AppComponent],
@@ -21,14 +24,17 @@ import { AppActions } from './app.actions';
 		BrowserAnimationsModule,
 		FormsModule,
 		ReactiveFormsModule,
-		RouterModule.forRoot([]),
+		RouterModule.forRoot(AppRoutes),
 		NgReduxModule,
 		NgReduxRouterModule.forRoot(),
 		NgReduxFormModule,
 		StoreModule,
-		MoviesModule
+		MoviesModule,
+		AppLoaderModule,
+		RoutesModule,
+		ResolversModule
 	],
-	providers: [AppActions],
+	providers: [],
 	bootstrap: [AppComponent]
 })
 export class AppModule {}

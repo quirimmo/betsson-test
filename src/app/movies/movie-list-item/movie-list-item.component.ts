@@ -14,6 +14,6 @@ export class MovieListItemComponent implements OnInit {
 	constructor() {}
 
 	ngOnInit(): void {
-		console.log('movie in the movie list item component:', this.movie);
+		// console.log('movie in the movie list item component:', this.movie);
 	}
 }
