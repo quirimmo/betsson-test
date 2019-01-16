@@ -1,0 +1,9 @@
+optimize the number of calls to the json to be just one whatever is the page you load at the beginning.
+finish to work on search by name and filter by genre
+finish to style all the view movies page
+create the view single movie page
+create sort by
+create navigation between movies in the single movie page
+add animations to routes
+add effects to elements
+add unit tests
