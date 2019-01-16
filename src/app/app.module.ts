@@ -15,6 +15,7 @@ import { AppRoutes } from './app.routes';
 import { RoutesModule } from './routes/routes.module';
 import { ResolversModule } from './resolvers/resolvers.module';
 import { AngularAnimationsLibraryModule } from 'angular-animations-library';
+import { AppNavigatorLinkModule } from './app-navigator-link/app-navigator-link.module';
 
 @NgModule({
 	declarations: [AppComponent],
@@ -34,7 +35,8 @@ import { AngularAnimationsLibraryModule } from 'angular-animations-library';
 		AppLoaderModule,
 		RoutesModule,
 		ResolversModule,
-		AngularAnimationsLibraryModule
+		AngularAnimationsLibraryModule,
+		AppNavigatorLinkModule
 	],
 	providers: [],
 	bootstrap: [AppComponent]
