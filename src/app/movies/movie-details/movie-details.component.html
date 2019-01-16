@@ -1,24 +1,27 @@
-<section
-	class="row movie-details-wrapper"
-	[@jackInTheBoxOnEnter]
-	[@slideOutRightOnLeave]
->
-	<div
-		class="col-xl-2 offset-xl-3 col-md-3 offset-md-2 col-sm-6 col-12 text-center mb-3"
+<ng-container>
+	<section
+		*ngIf="movie"
+		class="row movie-details-wrapper"
+		[@jackInTheBoxOnEnter]
+		[@slideOutRightOnLeave]
 	>
-		<img
-			class="movie-details-cover"
-			mat-card-image
-			[src]="'assets/' + movie.img"
-			alt="{{ movie.name }}"
-		/>
-	</div>
-	<div class="col-xl-4 col-md-5 col-sm-6 col-12">
-		<div class="movie-details-title">{{ movie.name }}</div>
-		<div class="movie-details-description">{{ movie.description }}</div>
-		<div class="movie-details-rate">Rate: {{ movie.rate }}/10</div>
-		<div class="movie-details-genres">
-			Genres: <i>{{ movie.genres.join(' - ') }}</i>
+		<div
+			class="col-xl-2 offset-xl-3 col-md-3 offset-md-2 col-sm-6 col-12 text-center mb-3"
+		>
+			<img
+				class="movie-details-cover"
+				mat-card-image
+				[src]="'assets/' + movie.img"
+				alt="{{ movie.name }}"
+			/>
 		</div>
-	</div>
-</section>
+		<div class="col-xl-4 col-md-5 col-sm-6 col-12">
+			<div class="movie-details-title">{{ movie.name }}</div>
+			<div class="movie-details-description">{{ movie.description }}</div>
+			<div class="movie-details-rate">Rate: {{ movie.rate }}/10</div>
+			<div class="movie-details-genres">
+				Genres: <i>{{ movie.genres.join(' - ') }}</i>
+			</div>
+		</div>
+	</section>
+</ng-container>
