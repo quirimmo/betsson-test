@@ -1,14 +1,37 @@
 <section>
 	<section class="mb-4">
-		<div class="row mb-2">SEARCH</div>
-		<div class="row">FILTERS</div>
+		<form>
+			<div class="row mb-2">
+				<mat-form-field class="example-full-width">
+					<input
+						#searchMovie
+						matInput
+						placeholder="Type the name of the movie..."
+					/>
+				</mat-form-field>
+			</div>
+			<div class="row">
+				<mat-form-field>
+					<mat-select placeholder="Toppings" [formControl]="toppings" multiple>
+						<mat-option *ngFor="let topping of genres" [value]="topping">{{
+							topping
+						}}</mat-option>
+					</mat-select>
+				</mat-form-field>
+			</div>
+		</form>
 	</section>
 	<section class="row">
 		<article
 			class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12"
-			*ngFor="let movie of movies; trackBy: movie?.id"
+			*ngFor="
+				let movie of (movies | filterMovies: searchMovie.value:toppings.value);
+				trackBy: trackById
+			"
 		>
-			<movie-list-item [movie]="movie"></movie-list-item>
+			<a [routerLink]="['/movie', movie.id]">
+				<movie-list-item [movie]="movie"></movie-list-item>
+			</a>
 		</article>
 	</section>
 </section>
