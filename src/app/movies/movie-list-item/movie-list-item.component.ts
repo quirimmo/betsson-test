@@ -7,13 +7,9 @@ import Movie from '../movie.model';
 	styleUrls: ['./movie-list-item.component.scss'],
 	templateUrl: './movie-list-item.component.html'
 })
-export class MovieListItemComponent implements OnInit {
+export class MovieListItemComponent {
 	@Input()
 	movie: Movie;
 
 	constructor() {}
-
-	ngOnInit(): void {
-		// console.log('movie in the movie list item component:', this.movie);
-	}
 }

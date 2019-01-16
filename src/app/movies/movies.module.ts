@@ -14,19 +14,22 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { FilterMoviesPipe } from './pipes/filter-movies.pipe';
 import { FilterMoviesComponent } from './filter-movies/filter-movies.component';
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
 
 @NgModule({
 	declarations: [
 		MoviesListComponent,
 		MovieListItemComponent,
 		FilterMoviesPipe,
-		FilterMoviesComponent
+		FilterMoviesComponent,
+		MovieDetailsComponent
 	],
 	exports: [
 		MoviesListComponent,
 		MovieListItemComponent,
 		FilterMoviesPipe,
-		FilterMoviesComponent
+		FilterMoviesComponent,
+		MovieDetailsComponent
 	],
 	imports: [
 		HttpClientModule,

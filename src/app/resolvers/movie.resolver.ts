@@ -17,7 +17,6 @@ export class MovieResolver implements Resolve<Movie> {
 		route: ActivatedRouteSnapshot,
 		state: RouterStateSnapshot
 	): Observable<Movie> {
-		console.log('route param:', route.params.id);
 		return this.actions
 			.dispatchFetchMoviesThunk()
 			.pipe(
