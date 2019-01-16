@@ -13,10 +13,21 @@ import {
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { FilterMoviesPipe } from './pipes/filter-movies.pipe';
+import { FilterMoviesComponent } from './filter-movies/filter-movies.component';
 
 @NgModule({
-	declarations: [MoviesListComponent, MovieListItemComponent, FilterMoviesPipe],
-	exports: [MoviesListComponent, MovieListItemComponent, FilterMoviesPipe],
+	declarations: [
+		MoviesListComponent,
+		MovieListItemComponent,
+		FilterMoviesPipe,
+		FilterMoviesComponent
+	],
+	exports: [
+		MoviesListComponent,
+		MovieListItemComponent,
+		FilterMoviesPipe,
+		FilterMoviesComponent
+	],
 	imports: [
 		HttpClientModule,
 		CommonModule,
@@ -27,6 +38,6 @@ import { FilterMoviesPipe } from './pipes/filter-movies.pipe';
 		ReactiveFormsModule,
 		RouterModule
 	],
-	providers: [MoviesDAOService, MoviesActions]
+	providers: [MoviesDAOService, MoviesActions, FilterMoviesPipe]
 })
 export class MoviesModule {}

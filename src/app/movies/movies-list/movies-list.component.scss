@@ -1,0 +1,27 @@
+.search-movie-container {
+  margin: 20px 0px;
+  text-align: center;
+}
+
+.movie-list-item-wrapper {
+  opacity: 0.75;
+  -webkit-transition: all 0.35s;
+  transition: all 0.35s;
+}
+
+.movie-list-item-wrapper:hover {
+  opacity: 1;
+}
+
+.movie-list-item-wrapper a:hover {
+  text-decoration: none;
+}
+
+.no-movies-list-message {
+  text-align: justify;
+  background: #ead430;
+  color: #000405;
+  font-size: 13pt;
+  padding: 20px;
+  border-radius: 5px;
+}

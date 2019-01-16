@@ -3,3 +3,36 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 $material-icons-font-path: '~material-icons/iconfont/';
 @import 'material-icons/iconfont/material-icons.scss';
+body {
+  background-color: #000405;
+  font-family: Roboto Arial;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+  background: #76c9d5;
+}
+
+.mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: #ead430;
+}
+
+.mat-form-field.mat-focused .mat-form-field-label {
+  color: #ead430;
+}
+
+.mat-input-element {
+  caret-color: #ead430;
+}
+
+input.mat-input-element,
+.mat-select-value {
+  color: white;
+}
+
+.mat-form-field-appearance-legacy .mat-form-field-label {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.mat-select-arrow {
+  color: white;
+}

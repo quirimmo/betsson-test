@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AppLoaderActions } from '../../app-loader/app-loader.actions';
-import { select } from '@angular-redux/store';
-import { Observable } from 'rxjs';
 import Movie from 'src/app/movies/movie.model';
 import { ActivatedRoute } from '@angular/router';
 

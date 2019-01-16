@@ -1,33 +1,36 @@
 <section>
 	<section class="mb-4">
-		<form>
-			<div class="row mb-2">
-				<mat-form-field class="example-full-width">
-					<input
-						#searchMovie
-						matInput
-						placeholder="Type the name of the movie..."
-					/>
-				</mat-form-field>
-			</div>
-			<div class="row">
-				<mat-form-field>
-					<mat-select placeholder="Toppings" [formControl]="toppings" multiple>
-						<mat-option *ngFor="let topping of genres" [value]="topping">{{
-							topping
-						}}</mat-option>
-					</mat-select>
-				</mat-form-field>
-			</div>
-		</form>
+		<filter-movies #filterMovies [genres]="genres"></filter-movies>
 	</section>
 	<section class="row">
+		<div
+			*ngIf="
+				getFilteredMovies(
+					filterMovies.nameText.value,
+					filterMovies.genresSelect.value
+				).length === 0
+			"
+			class="col-12 justify-content-center"
+      [@slideInLeftOnEnter]
+      [@slideOutRightOnLeave]
+		>
+			<p class="no-movies-list-message">
+				It looks like there are not movies corresponding to your search...
+				<br />
+				Try changing your filters!
+			</p>
+		</div>
 		<article
-			class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12"
+			class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 movie-list-item-wrapper"
 			*ngFor="
-				let movie of (movies | filterMovies: searchMovie.value:toppings.value);
+				let movie of getFilteredMovies(
+					filterMovies.nameText.value,
+					filterMovies.genresSelect.value
+				);
 				trackBy: trackById
 			"
+			[@bounceInUpOnEnter]
+			[@bounceOutOnLeave]
 		>
 			<a [routerLink]="['/movie', movie.id]">
 				<movie-list-item [movie]="movie"></movie-list-item>

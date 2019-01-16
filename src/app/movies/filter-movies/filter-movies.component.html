@@ -1,0 +1,22 @@
+<form>
+	<div class="row search-movie-container">
+		<mat-form-field class="col-md-6 col-12 w-100">
+			<input
+				[formControl]="nameText"
+				matInput
+				placeholder="Type the name of the movie..."
+			/>
+		</mat-form-field>
+		<mat-form-field class="col-md-6 col-12 w-100">
+			<mat-select
+				placeholder="Select the genres..."
+				[formControl]="genresSelect"
+				multiple
+			>
+				<mat-option *ngFor="let genre of genres" [value]="genre">{{
+					genre
+				}}</mat-option>
+			</mat-select>
+		</mat-form-field>
+	</div>
+</form>
