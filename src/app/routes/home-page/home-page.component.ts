@@ -5,8 +5,6 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
 	selector: 'home-page',
-	inputs: [],
-	outputs: [],
 	templateUrl: './home-page.component.html'
 })
 export class HomePageComponent implements OnInit {

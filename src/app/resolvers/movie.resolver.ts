@@ -4,7 +4,7 @@ import {
 	ActivatedRouteSnapshot,
 	RouterStateSnapshot
 } from '@angular/router';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { MoviesActions, MoviesAction } from '../movies/movies.actions';
 import Movie from '../movies/movie.model';
 import { map } from 'rxjs/operators';

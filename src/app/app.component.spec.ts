@@ -3,6 +3,12 @@ import { AppComponent } from './app.component';
 import { AppLoaderComponent } from './app-loader/app-loader.component';
 import { RouterTestingModule } from '@angular/router/testing';
 
+const MockAppLoaderComponent = {
+	set: {
+		template: '<span>app loader</span>'
+	}
+};
+
 describe('AppComponent', () => {
 	let appComponentFixture, appComponentInstance;
 
@@ -10,7 +16,9 @@ describe('AppComponent', () => {
 		TestBed.configureTestingModule({
 			declarations: [AppComponent, AppLoaderComponent],
 			imports: [RouterTestingModule]
-		}).compileComponents();
+		})
+			.overrideComponent(AppLoaderComponent, MockAppLoaderComponent)
+			.compileComponents();
 		appComponentFixture = TestBed.createComponent(AppComponent);
 		appComponentInstance = appComponentFixture.debugElement.componentInstance;
 	}));

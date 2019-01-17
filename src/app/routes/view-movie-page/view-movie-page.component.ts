@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppLoaderActions } from '../../app-loader/app-loader.actions';
-import { Observable, of, combineLatest } from 'rxjs';
-import { select } from '@angular-redux/store';
 import Movie from 'src/app/movies/movie.model';
 
 @Component({

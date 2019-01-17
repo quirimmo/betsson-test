@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ViewMoviePage Component should match the snapshot 1`] = `
+<view-movie-page
+  appLoaderActions={[Function Object]}
+  route={[Function Object]}
+  router={[Function Object]}
+>
+  <section
+    class="container-fluid"
+  >
+    <div>
+      <app-navigator-link>
+        <span>
+          app navigator link
+        </span>
+      </app-navigator-link>
+    </div>
+    <div>
+      <movie-details>
+        <span>
+          movie details
+        </span>
+      </movie-details>
+    </div>
+  </section>
+</view-movie-page>
+`;

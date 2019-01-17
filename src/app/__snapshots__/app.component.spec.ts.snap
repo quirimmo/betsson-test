@@ -8,7 +8,9 @@ exports[`AppComponent should match the snapshot 1`] = `
     class="app-wrapper"
   >
     <app-loader>
-      
+      <span>
+        app loader
+      </span>
     </app-loader>
     <router-outlet />
   </div>

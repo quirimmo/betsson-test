@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomePage Component should match the snapshot 1`] = `
+<home-page
+  appLoaderActions={[Function Object]}
+  movies={[Function Array]}
+  route={[Function Object]}
+>
+  <section
+    class="container-fluid"
+  >
+    <movies-list
+      class="ng-tns-c1-0"
+    >
+      <span
+        class="ng-tns-c1-0"
+      >
+        movies list
+      </span>
+    </movies-list>
+  </section>
+</home-page>
+`;

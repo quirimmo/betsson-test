@@ -7,6 +7,7 @@
 		"build": "ng build",
 		"test": "node_modules/.bin/jest --colors",
 		"test:watch": "node_modules/.bin/jest --colors --watchAll",
+		"test:update-snapshots": "node_modules/.bin/jest --updateSnapshot",
 		"lint": "ng lint",
 		"e2e": "ng e2e"
 	},
