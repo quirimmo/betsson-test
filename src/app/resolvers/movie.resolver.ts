@@ -18,11 +18,9 @@ export class MovieResolver implements Resolve<Movie> {
 		state: RouterStateSnapshot
 	): Observable<Movie> {
 		return this.actions
-			.dispatchFetchMoviesThunk()
+			.fetchMovies()
 			.pipe(
-				map((data: MoviesAction) =>
-					data.movies.find(m => m.id === +route.params.id)
-				)
+				map((movies: Movie[]) => movies.find(m => m.id === +route.params.id))
 			);
 	}
 }

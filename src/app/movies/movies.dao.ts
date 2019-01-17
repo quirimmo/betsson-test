@@ -1,24 +1,8 @@
 import Movie, { MovieRawData } from './movie.model';
 import { HttpClient } from '@angular/common/http';
-import {
-	tap,
-	map,
-	take,
-	publish,
-	takeWhile,
-	takeUntil,
-	share,
-	publishReplay,
-	refCount
-} from 'rxjs/operators';
+import { map, publishReplay } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
-import {
-	Observable,
-	of,
-	Subject,
-	Subscription,
-	ConnectableObservable
-} from 'rxjs';
+import { Observable } from 'rxjs';
 
 @Injectable({
 	providedIn: 'root'

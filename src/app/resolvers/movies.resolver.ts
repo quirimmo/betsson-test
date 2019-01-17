@@ -10,8 +10,6 @@ export class MoviesResolver implements Resolve<Movie[]> {
 	constructor(private actions: MoviesActions) {}
 
 	resolve(): Observable<Movie[]> {
-		return this.actions
-			.dispatchFetchMoviesThunk()
-			.pipe(map((data: MoviesAction) => data.movies));
+		return this.actions.fetchMovies();
 	}
 }

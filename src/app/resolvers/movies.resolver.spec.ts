@@ -16,11 +16,11 @@ const movie = new Movie(
 	'img.jpg'
 );
 const movies = [movie];
-const mockDispatchFetchMoviesThunk = jest.fn().mockReturnValue(of({ movies }));
+const mockFetchMovies = jest.fn().mockReturnValue(of(movies));
 const mockMoviesActions = {
 	provide: MoviesActions,
 	useValue: {
-		dispatchFetchMoviesThunk: mockDispatchFetchMoviesThunk
+		fetchMovies: mockFetchMovies
 	}
 };
 const providers = [mockMoviesActions, MoviesResolver];
@@ -36,7 +36,7 @@ describe('Movies Resolver', () => {
 
 	it('should dispatch the action dispatchFetchMoviesThunk', () => {
 		resolver.resolve();
-		expect(mockDispatchFetchMoviesThunk).toHaveBeenCalled();
+		expect(mockFetchMovies).toHaveBeenCalled();
 	});
 
 	it('should resolve the list of movies', async () => {
