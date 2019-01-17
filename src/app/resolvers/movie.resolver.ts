@@ -5,7 +5,7 @@ import {
 	RouterStateSnapshot
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import { MoviesActions, MoviesAction } from '../movies/movies.actions';
+import { MoviesActions } from '../movies/movies.actions';
 import Movie from '../movies/movie.model';
 import { map } from 'rxjs/operators';
 
@@ -20,7 +20,9 @@ export class MovieResolver implements Resolve<Movie> {
 		return this.actions
 			.fetchMovies()
 			.pipe(
-				map((movies: Movie[]) => movies.find(m => m.id === +route.params.id))
+				map((movies: Movie[]) =>
+					movies.find(({ id }) => id === +route.params.id)
+				)
 			);
 	}
 }

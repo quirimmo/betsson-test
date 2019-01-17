@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Action, Dispatch, AnyAction } from 'redux';
+import { Action } from 'redux';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { NgRedux } from '@angular-redux/store';
