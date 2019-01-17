@@ -3,25 +3,26 @@
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 $material-icons-font-path: '~material-icons/iconfont/';
 @import 'material-icons/iconfont/material-icons.scss';
+@import "./colors.scss";
 body {
-  background-color: #000405;
+  background-color: $black;
   font-family: Roboto Arial;
 }
 
 .mat-form-field-appearance-legacy .mat-form-field-underline {
-  background: #76c9d5;
+  background: $blue;
 }
 
 .mat-form-field.mat-focused .mat-form-field-ripple {
-  background-color: #ead430;
+  background-color: $yellow;
 }
 
 .mat-form-field.mat-focused .mat-form-field-label {
-  color: #ead430;
+  color: $yellow;
 }
 
 .mat-input-element {
-  caret-color: #ead430;
+  caret-color: $yellow;
 }
 
 input.mat-input-element,
@@ -38,10 +39,10 @@ input.mat-input-element,
 }
 
 .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
-  color: #76c9d5;
+  color: $blue;
 }
 
 .mat-primary .mat-pseudo-checkbox-checked,
 .mat-primary .mat-pseudo-checkbox-indeterminate {
-  background: #76c9d5;
+  background: $blue;
 }

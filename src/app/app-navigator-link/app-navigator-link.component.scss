@@ -1,38 +1,40 @@
+@import './../../colors.scss';
+
 .back-navigation-wrapper {
-  color: #76c9d5;
-  position: relative;
-  text-transform: uppercase;
-  font-size: 15pt;
-  letter-spacing: 0.5px;
-  top: -20px;
-  left: -50px;
-  display: block;
-  clear: both;
-  height: 110px;
-  width: 0px;
-  opacity: 0.75;
-  -webkit-transition: all 0.35s;
-  transition: all 0.35s;
+	color: $blue;
+	position: relative;
+	text-transform: uppercase;
+	font-size: 15pt;
+	letter-spacing: 0.5px;
+	top: -20px;
+	left: -50px;
+	display: block;
+	clear: both;
+	height: 110px;
+	width: 0px;
+	opacity: 0.75;
+	-webkit-transition: all 0.35s;
+	transition: all 0.35s;
 }
 
 .back-navigation-wrapper:hover {
-  width: 250px;
-  border-bottom: 1px solid white;
-  opacity: 1;
+	width: 250px;
+	border-bottom: 1px solid white;
+	opacity: 1;
 }
 
 .back-navigation-arrow {
-  font-size: 100pt;
-  position: absolute;
-  display: inline-block;
-  top: 0;
-  left: 0;
+	font-size: 100pt;
+	position: absolute;
+	display: inline-block;
+	top: 0;
+	left: 0;
 }
 
 .back-navigation-text {
-  position: absolute;
-  width: 150px;
-  text-align: left;
-  top: 50px;
-  left: 100px;
+	position: absolute;
+	width: 150px;
+	text-align: left;
+	top: 50px;
+	left: 100px;
 }
