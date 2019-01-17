@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MoviesListItem Component should match the snapshot 1`] = `
+<movie-list-item>
+  <section
+    class="movie-item-card"
+  >
+    <div>
+      <img
+        class="movie-item-image"
+        mat-card-image=""
+      />
+    </div>
+    <div
+      class="movie-item-card-rate"
+    >
+       Rate: 
+      <strong>
+        
+      </strong>
+    </div>
+    <div
+      class="movie-item-card-title"
+    >
+      
+    </div>
+  </section>
+</movie-list-item>
+`;

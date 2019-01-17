@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MoviesList Component should match the snapshot 1`] = `
+<movies-list
+  filterMoviesPipe={[Function Object]}
+  genres={[Function Array]}
+  movies={[Function Array]}
+>
+  <section
+    class="ng-tns-c1-0"
+  >
+    <section
+      class="mb-4"
+    >
+      <filter-movies
+        class="ng-tns-c1-0"
+      >
+        <span>
+          filter movies
+        </span>
+      </filter-movies>
+    </section>
+    <section
+      class="row"
+    >
+      
+      
+    </section>
+  </section>
+</movies-list>
+`;

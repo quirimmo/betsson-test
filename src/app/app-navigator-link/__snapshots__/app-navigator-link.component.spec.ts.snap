@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppNavigatorLink Component should match the snapshot 1`] = `
+<app-navigator-link>
+  <nav>
+    <a
+      class="back-navigation-wrapper"
+      routerlink="/"
+    >
+      <mat-icon
+        aria-hidden="true"
+        class="back-navigation-arrow mat-icon"
+        role="img"
+      >
+        arrow_left
+      </mat-icon>
+      <span
+        class="back-navigation-text"
+      >
+        All Movies
+      </span>
+    </a>
+  </nav>
+</app-navigator-link>
+`;

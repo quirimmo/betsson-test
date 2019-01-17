@@ -1,9 +1,6 @@
 import { Component, Input } from '@angular/core';
 import Movie from '../movie.model';
 import {
-	bounceOutOnLeaveAnimation,
-	bounceInUpOnEnterAnimation,
-	slideInLeftOnEnterAnimation,
 	slideOutRightOnLeaveAnimation,
 	jackInTheBoxOnEnterAnimation
 } from 'angular-animations';
@@ -15,9 +12,6 @@ import {
 	templateUrl: './movie-details.component.html',
 	animations: [
 		jackInTheBoxOnEnterAnimation(),
-		bounceInUpOnEnterAnimation({ duration: 500 }),
-		bounceOutOnLeaveAnimation({ duration: 350 }),
-		slideInLeftOnEnterAnimation({ duration: 100, delay: 350 }),
 		slideOutRightOnLeaveAnimation({ duration: 100 })
 	]
 })
