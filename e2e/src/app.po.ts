@@ -1,11 +1,41 @@
-import { browser, by, element } from 'protractor';
+import { browser, by, element, ElementFinder } from 'protractor';
 
 export class AppPage {
-  navigateTo() {
-    return browser.get('/');
-  }
+	navigateToHome() {
+		return browser.get('/');
+	}
 
-  getTitleText() {
-    return element(by.css('app-root h1')).getText();
-  }
+	getMovieListItems() {
+		return element.all(by.css('.movie-list-item-wrapper'));
+	}
+
+	getMovieListItemsTitles() {
+		return this.getMovieListItems().map((el: ElementFinder, ind: number) =>
+			el.$('.movie-item-card-title').getText()
+		);
+	}
+
+	getMovieListItemsRates() {
+		return this.getMovieListItems().map((el: ElementFinder, ind: number) =>
+			el.$('.movie-item-card-rate').getText()
+		);
+	}
+
+	getMovieListItemsImages() {
+		return this.getMovieListItems().map((el: ElementFinder, ind: number) =>
+			el.$('.movie-item-image').getAttribute('alt')
+		);
+	}
+
+	getNoMoviesListMessage() {
+		return element(by.css('.no-movies-list-message'));
+	}
+
+	getSearchMovieName() {
+		return element(by.css('#search-movie-name'));
+	}
+
+	getSearchMovieGenres() {
+		return element(by.css('#seach-movie-genres'));
+	}
 }

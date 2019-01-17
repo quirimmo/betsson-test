@@ -2,6 +2,7 @@
 	<div class="row search-movie-container">
 		<mat-form-field class="col-md-6 col-12 w-100">
 			<input
+				id="search-movie-name"
 				[formControl]="nameText"
 				matInput
 				placeholder="Type the name of the movie..."
@@ -9,6 +10,7 @@
 		</mat-form-field>
 		<mat-form-field class="col-md-6 col-12 w-100">
 			<mat-select
+				id="seach-movie-genres"
 				placeholder="Select the genres..."
 				[formControl]="genresSelect"
 				multiple
