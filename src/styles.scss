@@ -36,3 +36,12 @@ input.mat-input-element,
 .mat-select-arrow {
   color: white;
 }
+
+.mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+  color: #76c9d5;
+}
+
+.mat-primary .mat-pseudo-checkbox-checked,
+.mat-primary .mat-pseudo-checkbox-indeterminate {
+  background: #76c9d5;
+}
