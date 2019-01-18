@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppLoaderActions } from '../../app-loader/app-loader.actions';
 import Movie from 'src/app/movies/movie.model';
@@ -9,7 +9,7 @@ import Movie from 'src/app/movies/movie.model';
 	outputs: [],
 	templateUrl: './view-movie-page.component.html'
 })
-export class ViewMoviePageComponent implements OnInit {
+export class ViewMoviePageComponent implements OnInit, AfterViewInit {
 	movie: Movie;
 
 	constructor(
@@ -20,9 +20,12 @@ export class ViewMoviePageComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.movie = this.route.snapshot.data.movie;
-		this.appLoaderActions.stopLoading();
 		if (!this.movie) {
 			this.router.navigate(['']);
 		}
+	}
+
+	ngAfterViewInit(): void {
+		this.appLoaderActions.stopLoading();
 	}
 }

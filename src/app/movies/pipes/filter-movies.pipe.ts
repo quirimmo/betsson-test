@@ -5,11 +5,11 @@ import GenreType from '../genre.model';
 @Pipe({ name: 'filterMovies' })
 export class FilterMoviesPipe implements PipeTransform {
 	transform(movies: Movie[], name: string, genres: string[] = []): Movie[] {
-		genres = genres.map(g => GenreType[g]);
-		return movies.filter(m => {
+		genres = genres.map((g: string) => GenreType[g]);
+		return movies.filter((m: Movie) => {
 			return (
 				m.name.toUpperCase().includes(name.trim().toUpperCase()) &&
-				m.genres.some(g => genres.includes(g))
+				m.genres.some((g: GenreType) => genres.includes(g))
 			);
 		});
 	}

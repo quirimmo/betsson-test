@@ -15,7 +15,9 @@ export class MoviesDAOService {
 			.get('assets/movies.mock-data.json')
 			.pipe(
 				map((data: MovieRawData[]) =>
-					data.map(rawMovie => Movie.buildInstanceFromRaw(rawMovie))
+					data.map((rawMovie: MovieRawData) =>
+						Movie.buildInstanceFromRaw(rawMovie)
+					)
 				)
 			)
 			.pipe(publishReplay());
