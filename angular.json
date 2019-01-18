@@ -50,6 +50,14 @@
 									"maximumError": "5mb"
 								}
 							]
+						},
+						"test": {
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.e2e.ts"
+								}
+							]
 						}
 					}
 				},
@@ -88,6 +96,17 @@
 						"tsConfig": ["src/tsconfig.app.json", "src/tsconfig.spec.json"],
 						"exclude": ["**/node_modules/**"]
 					}
+				},
+				"serve-e2e": {
+					"builder": "@angular-devkit/build-angular:dev-server",
+					"options": {
+						"browserTarget": "betsoon-test:build"
+					},
+					"configurations": {
+						"test": {
+							"browserTarget": "betsoon-test:build:test"
+						}
+					}
 				}
 			}
 		},
@@ -100,11 +119,11 @@
 					"builder": "@angular-devkit/build-angular:protractor",
 					"options": {
 						"protractorConfig": "e2e/protractor.conf.js",
-						"devServerTarget": "betsoon-test:serve"
+						"devServerTarget": "betsoon-test:serve-e2e:test"
 					},
 					"configurations": {
 						"production": {
-							"devServerTarget": "betsoon-test:serve:production"
+							"devServerTarget": "betsoon-test:serve-e2e:test"
 						}
 					}
 				},

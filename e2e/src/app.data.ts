@@ -43,6 +43,12 @@ export const ACTION_MOVIE_TITLES = [
 	'Bad Boys'
 ];
 
+export const FILTERED_ACTION_MOVIES = [
+	'Deadpool',
+	'Gangster Squad',
+	'Bad Boys'
+];
+
 export const MOVIE_RATES = [
 	'Rate: 8.6/10',
 	'Rate: 7.0/10',
@@ -70,4 +76,14 @@ export const MOVIE_RATES = [
 	'Rate: 6.8/10'
 ];
 
-export const MOVIE_IMAGES = [];
+export const NO_MOVIES_MESSAGE =
+	'It looks like there are not movies corresponding to your search...\n' +
+	'Try changing your filters!';
+
+export const DEADPOOL_DESCRIPTION =
+	'A former Special Forces operative turned mercenary is subjected to a rogue experiment that leaves him with accelrated healing powers,' +
+	' adopting the alter ego Deadpool.';
+
+export const DEADPOOL_RATE = 'Rate: 8.6/10';
+
+export const DEADPOOL_GENRES = 'Genres: action - adventure - comedy';

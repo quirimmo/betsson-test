@@ -31,11 +31,50 @@ export class AppPage {
 		return element(by.css('.no-movies-list-message'));
 	}
 
-	getSearchMovieName() {
-		return element(by.css('#search-movie-name'));
+	async setSearchMovieName(name: string) {
+		const searchMovieName = element(by.css('#search-movie-name'));
+		await searchMovieName.clear();
+		await searchMovieName.sendKeys(name);
 	}
 
-	getSearchMovieGenres() {
-		return element(by.css('#seach-movie-genres'));
+	async selectActionGenre() {
+		await element(by.css('.mat-select-trigger')).click();
+		await element.all(by.css('.genre-options')).each((el, ind) => {
+			if (ind > 0) {
+				el.click();
+			}
+		});
+		await element(by.css('body')).click();
+		await browser.executeScript('window.scrollTo(0,0);');
+	}
+
+	getMovieDetailsImage() {
+		return element(by.css('.movie-details-cover')).getAttribute('src');
+	}
+
+	getMovieDetailsTitle() {
+		return element(by.css('.movie-details-title')).getText();
+	}
+
+	getMovieDetailsGenres() {
+		return element(by.css('.movie-details-genres')).getText();
+	}
+
+	getMovieDetailsRate() {
+		return element(by.css('.movie-details-rate')).getText();
+	}
+
+	getMovieDetailsDescription() {
+		return element(by.css('.movie-details-description')).getText();
+	}
+
+	async navigateBackToMovies() {
+		await element(by.css('.back-navigation-text')).click();
+	}
+
+	selectDeadpool() {
+		return this.getMovieListItems()
+			.first()
+			.click();
 	}
 }
