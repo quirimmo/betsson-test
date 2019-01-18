@@ -28,6 +28,7 @@ exports[`FilterMovies Component should match the snapshot 1`] = `
             >
               <input
                 class="mat-input-element mat-form-field-autofill-control"
+                id="search-movie-name"
                 matinput=""
                 placeholder="Type the name of the movie..."
               />
@@ -64,6 +65,7 @@ exports[`FilterMovies Component should match the snapshot 1`] = `
             >
               <mat-select
                 class="mat-select ng-tns-c4-2"
+                id="seach-movie-genres"
                 multiple=""
                 placeholder="Select the genres..."
                 role="listbox"

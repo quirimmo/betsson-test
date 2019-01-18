@@ -2,6 +2,7 @@
 
 exports[`AppComponent should match the snapshot 1`] = `
 <app-root
+  disableAnimations="false"
   title={[Function String]}
 >
   <div
