@@ -83,7 +83,6 @@ export const NO_MOVIES_MESSAGE =
 export const DEADPOOL_DESCRIPTION =
 	'A former Special Forces operative turned mercenary is subjected to a rogue experiment that leaves him with accelrated healing powers,' +
 	' adopting the alter ego Deadpool.';
-
 export const DEADPOOL_RATE = 'Rate: 8.6/10';
-
-export const DEADPOOL_GENRES = 'Genres: action - adventure - comedy';
+export const DEADPOOL_LENGTH = 'Duration: 1hr 48mins';
+export const DEADPOOL_GENRES = 'Genres: Action - Adventure - Comedy';

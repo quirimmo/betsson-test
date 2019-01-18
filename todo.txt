@@ -1,5 +1,5 @@
-add everywhere types for typescript
-refactor e2e tests
-check all the code
+add e2e tests to movie details length
+Add unit tests to pipe and new length and genres change to uppercase
+refctor snapshots
 RUN AGAIN UNIT TESTS
 RUN AGAIN E2E TESTS
