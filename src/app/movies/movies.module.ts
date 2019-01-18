@@ -15,12 +15,14 @@ import { RouterModule } from '@angular/router';
 import { FilterMoviesPipe } from './pipes/filter-movies.pipe';
 import { FilterMoviesComponent } from './filter-movies/filter-movies.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { GenresPipe } from './pipes/genres.pipe';
 
 @NgModule({
 	declarations: [
 		MoviesListComponent,
 		MovieListItemComponent,
 		FilterMoviesPipe,
+		GenresPipe,
 		FilterMoviesComponent,
 		MovieDetailsComponent
 	],
@@ -28,6 +30,7 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
 		MoviesListComponent,
 		MovieListItemComponent,
 		FilterMoviesPipe,
+		GenresPipe,
 		FilterMoviesComponent,
 		MovieDetailsComponent
 	],

@@ -1,4 +1,5 @@
-ADD DURATION IN MOVIE DETAILS
-TRANSFORM GENRES IN MOVIE DETAILS TO KEYS AND NOT VALUES
+add everywhere types for typescript
+refactor e2e tests
+check all the code
 RUN AGAIN UNIT TESTS
 RUN AGAIN E2E TESTS

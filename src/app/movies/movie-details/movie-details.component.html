@@ -20,8 +20,9 @@
 			<div class="movie-details-description">{{ movie.description }}</div>
 			<div class="movie-details-rate">Rate: {{ movie.rate }}/10</div>
 			<div class="movie-details-genres">
-				Genres: <i>{{ movie.genres.join(' - ') }}</i>
+				Genres: <i>{{ movie.genres | genres }}</i>
 			</div>
+			<div class="movie-details-duration">Duration: {{ movie.length }}</div>
 		</div>
 	</section>
 </ng-container>
