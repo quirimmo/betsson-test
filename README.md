@@ -1,4 +1,4 @@
-# BetsonTest
+# BetssonTest
 
 Check out the repo on your machine.
 
