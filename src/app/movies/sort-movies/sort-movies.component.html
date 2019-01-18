@@ -1,0 +1,15 @@
+<form>
+	<div class="row sort-movies-container">
+		<mat-form-field class="col-md-6 offset-md-3 col-12 w-100">
+			<mat-select
+				[formControl]="sortBySelect"
+				placeholder="Sort by"
+				name="movie-sort-by"
+			>
+				<mat-option *ngFor="let item of orderingOptions" [value]="item">
+					{{ item.label }}
+				</mat-option>
+			</mat-select>
+		</mat-form-field>
+	</div>
+</form>
