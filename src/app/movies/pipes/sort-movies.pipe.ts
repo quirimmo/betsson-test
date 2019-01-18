@@ -33,7 +33,6 @@ export class SortMoviesPipe implements PipeTransform {
 				sorter = this.sortById(isAscending);
 				break;
 		}
-
 		const newMovies: Movie[] = movies.slice();
 		newMovies.sort(sorter);
 		return newMovies;
@@ -64,20 +63,11 @@ export class SortMoviesPipe implements PipeTransform {
 			const [aHours, aMinutes] = getHoursAndMinutes(a.length);
 			const [bHours, bMinutes] = getHoursAndMinutes(b.length);
 			const hoursDifference = aHours - bHours;
-			if (hoursDifference < 0) {
-				return isAscending ? -1 : 1;
-			}
-			if (hoursDifference > 0) {
-				return isAscending ? 1 : -1;
-			}
 			const minutesDifference = aMinutes - bMinutes;
-			if (minutesDifference < 0) {
-				return isAscending ? -1 : 1;
+			if (hoursDifference !== 0) {
+				return isAscending ? hoursDifference : -hoursDifference;
 			}
-			if (minutesDifference > 0) {
-				return isAscending ? 1 : -1;
-			}
-			return 0;
+			return isAscending ? minutesDifference : -minutesDifference;
 		};
 
 		function getHoursAndMinutes(duration: string): [number, number] {
