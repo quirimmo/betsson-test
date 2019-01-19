@@ -8,6 +8,10 @@ export function moviesReducer(
 	switch (action.type) {
 		case MoviesActions.FETCH_MOVIES:
 			return [].concat(...action.movies);
+		case MoviesActions.FETCH_MOVIE_DETAILS:
+			return state.map((movie: Movie) =>
+				movie.id === action.movie.id ? action.movie : movie
+			);
 		default:
 			return state;
 	}

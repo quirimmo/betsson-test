@@ -7,7 +7,7 @@ import {
 import { Observable } from 'rxjs';
 import { MoviesActions } from '../movies/movies.actions';
 import Movie from '../movies/movie.model';
-import { map } from 'rxjs/operators';
+import { map, exhaustMap } from 'rxjs/operators';
 
 @Injectable()
 export class MovieResolver implements Resolve<Movie> {
@@ -19,10 +19,15 @@ export class MovieResolver implements Resolve<Movie> {
 	): Observable<Movie> {
 		return this.actions
 			.fetchMovies()
-			.pipe(
-				map((movies: Movie[]) =>
-					movies.find(({ id }) => id === +route.params.id)
-				)
-			);
+			.pipe(map(findMovie))
+			.pipe(exhaustMap(getMovieDetails.bind(this)));
+
+		function findMovie(movies: Movie[]): Movie {
+			return movies.find(({ id }) => id === +route.params.id);
+		}
+
+		function getMovieDetails(movie: Movie): Observable<Movie> {
+			return this.actions.fetchMovieDetails(movie);
+		}
 	}
 }
