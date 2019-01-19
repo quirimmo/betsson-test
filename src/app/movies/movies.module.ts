@@ -19,6 +19,7 @@ import { GenresPipe } from './pipes/genres.pipe';
 import { SortMoviesComponent } from './sort-movies/sort-movies.component';
 import { SortMoviesPipe } from './pipes/sort-movies.pipe';
 import { MovieExtraDetailsComponent } from './movie-extra-details/movie-extra-details.component';
+import { MoviesRouterService } from './movies-router.service';
 
 @NgModule({
 	declarations: [
@@ -53,6 +54,6 @@ import { MovieExtraDetailsComponent } from './movie-extra-details/movie-extra-de
 		ReactiveFormsModule,
 		RouterModule
 	],
-	providers: [MoviesDAOService, MoviesActions, FilterMoviesPipe, SortMoviesPipe]
+	providers: [MoviesDAOService, MoviesActions, FilterMoviesPipe, SortMoviesPipe, MoviesRouterService]
 })
 export class MoviesModule {}
