@@ -10,7 +10,7 @@ exports[`MoviesList Component should match the snapshot 1`] = `
     class="ng-tns-c1-0"
   >
     <section
-      class="mb-4"
+      class="ng-tns-c1-0"
     >
       <filter-movies
         class="ng-tns-c1-0"
@@ -19,6 +19,17 @@ exports[`MoviesList Component should match the snapshot 1`] = `
           filter movies
         </span>
       </filter-movies>
+    </section>
+    <section
+      class="mb-5"
+    >
+      <sort-movies
+        class="ng-tns-c1-0"
+      >
+        <span>
+          sort movies
+        </span>
+      </sort-movies>
     </section>
     <section
       class="row"

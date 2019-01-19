@@ -26,7 +26,9 @@ export class MoviesDAOService {
 		this.movies.connect();
 
 		function buildMoviesFromData(data: MovieRawData[]): Movie[] {
-			return data.map(Movie.buildInstanceFromRaw);
+			return data.map((movieRaw: MovieRawData) =>
+				Movie.buildInstanceFromRaw(movieRaw)
+			);
 		}
 	}
 

@@ -50,6 +50,6 @@ import { SortMoviesPipe } from './pipes/sort-movies.pipe';
 		ReactiveFormsModule,
 		RouterModule
 	],
-	providers: [MoviesDAOService, MoviesActions, FilterMoviesPipe]
+	providers: [MoviesDAOService, MoviesActions, FilterMoviesPipe, SortMoviesPipe]
 })
 export class MoviesModule {}

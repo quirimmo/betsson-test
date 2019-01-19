@@ -4,7 +4,7 @@ import {
 	ActivatedRouteSnapshot,
 	RouterStateSnapshot
 } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { MoviesActions } from '../movies/movies.actions';
 import Movie from '../movies/movie.model';
 import { map, exhaustMap } from 'rxjs/operators';
@@ -27,6 +27,9 @@ export class MovieResolver implements Resolve<Movie> {
 		}
 
 		function getMovieDetails(movie: Movie): Observable<Movie> {
+			if (!movie) {
+				return of(undefined);
+			}
 			return this.actions.fetchMovieDetails(movie);
 		}
 	}

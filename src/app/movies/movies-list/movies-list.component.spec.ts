@@ -7,6 +7,9 @@ import { FilterMoviesComponent } from '../filter-movies/filter-movies.component'
 import { RouterTestingModule } from '@angular/router/testing';
 import GenreType from '../genre.model';
 import { MovieListItemComponent } from '../movie-list-item/movie-list-item.component';
+import { SortMoviesComponent } from '../sort-movies/sort-movies.component';
+import { SortMoviesPipe } from '../pipes/sort-movies.pipe';
+import { By } from '@angular/platform-browser';
 
 const movie = new Movie(
 	1,
@@ -26,10 +29,19 @@ const mockFilterMoviesPipe = {
 		transform: mockTransform
 	}
 };
-const providers = [mockFilterMoviesPipe];
+const mockTransformSortPipe = jest.fn().mockReturnValue(movies);
+const mockSortMoviesPipe = {
+	provide: SortMoviesPipe,
+	useValue: {
+		transform: mockTransformSortPipe
+	}
+};
+const providers = [mockFilterMoviesPipe, mockSortMoviesPipe];
 const imports = [RouterTestingModule, BrowserAnimationsModule];
 const declarations = [
 	FilterMoviesComponent,
+	SortMoviesComponent,
+	SortMoviesPipe,
 	MovieListItemComponent,
 	MoviesListComponent
 ];
@@ -38,6 +50,11 @@ const MockFilterMoviesComponent = {
 	set: {
 		inputs: ['genres'],
 		template: '<span>filter movies</span>'
+	}
+};
+const MockSortMoviesComponent = {
+	set: {
+		template: '<span>sort movies</span>'
 	}
 };
 const MockMovieListItemComponent = {
@@ -57,10 +74,16 @@ describe('MoviesList Component', () => {
 			imports
 		})
 			.overrideComponent(FilterMoviesComponent, MockFilterMoviesComponent)
+			.overrideComponent(SortMoviesComponent, MockSortMoviesComponent)
 			.overrideComponent(MovieListItemComponent, MockMovieListItemComponent)
 			.compileComponents();
 		componentFixture = TestBed.createComponent(MoviesListComponent);
 		componentInstance = componentFixture.debugElement.componentInstance;
+		// componentInstance.sortMovies = {
+		// 	sortBySelect: {
+		// 		value: ''
+		// 	}
+		// };
 		componentInstance.movies = movies;
 	}));
 
