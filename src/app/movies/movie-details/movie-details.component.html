@@ -6,7 +6,7 @@
 		[@slideOutRightOnLeave]
 	>
 		<div
-			class="col-xl-2 offset-xl-3 col-md-3 offset-md-2 col-sm-6 col-12 text-center mb-3"
+			class="col-xl-2 offset-xl-3 col-md-3 offset-md-2 col-sm-6 col-12 text-center mb-5"
 		>
 			<img
 				class="movie-details-cover"
@@ -23,6 +23,53 @@
 				Genres: <i>{{ movie.genres | genres }}</i>
 			</div>
 			<div class="movie-details-duration">Duration: {{ movie.length }}</div>
+		</div>
+	</section>
+	<section
+		class="row movie-overview-wrapper"
+		[@bounceInUpOnEnter]
+		[@slideOutRightOnLeave]
+	>
+		<div class="col-xl-6 offset-xl-3 col-md-8 offset-md-2 col-12 mb-3">
+			{{ movie.details.overview }}
+		</div>
+		<div
+			class="col-xl-6 offset-xl-3 col-md-8 offset-md-2 col-12 movie-release-date mb-3 text-center"
+		>
+			Release date: {{ movie.details.releaseDate | date: 'fullDate' }}
+		</div>
+		<div
+			class="col-xl-6 offset-xl-3 col-md-8 offset-md-2 col-12 movie-homepage mb-3 text-center"
+		>
+			Homepage:
+			<a href="{{ movie.details.homepage }}">{{ movie.details.homepage }}</a>
+		</div>
+		<div
+			class="col-xl-6 offset-xl-3 col-md-8 offset-md-2 col-12 movie-homepage mb-3"
+		>
+			<div class="row">
+				<div class="col-sm-6 text-center">
+					Budget: {{ movie.details.budget | currency }}
+				</div>
+				<div class="col-sm-6 text-center">
+					Revenue: {{ movie.details.revenue | currency }}
+				</div>
+			</div>
+		</div>
+		<div
+			class="col-xl-6 offset-xl-3 col-md-8 offset-md-2 col-12 movie-homepage mb-3"
+		>
+			<div class="row mb-1" *ngIf="movie.details.videos.length > 0">
+				<div class="col-12 text-center">AVAILABLE VIDEOS</div>
+			</div>
+			<div class="row mb-2" *ngFor="let video of movie.details.videos">
+				<div class="col-12 text-center">{{ video.name }}</div>
+				<div class="col-12 text-center">
+					<a href="https://www.youtube.com/watch?v={{ video.key }}"
+						>https://www.youtube.com/watch?v={{ video.key }}</a
+					>
+				</div>
+			</div>
 		</div>
 	</section>
 </ng-container>

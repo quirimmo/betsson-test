@@ -34,8 +34,10 @@ input.mat-input-element,
   color: rgba(255, 255, 255, 0.75);
 }
 
-.mat-select-arrow {
-  color: white;
+.mat-select-arrow,
+.mat-select-arrow:focus,
+.mat-select-arrow:active {
+  color: white !important;
 }
 
 .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {

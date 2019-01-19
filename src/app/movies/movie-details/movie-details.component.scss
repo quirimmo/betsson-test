@@ -1,5 +1,6 @@
 @import './../../../colors';
-.movie-details-wrapper {
+.movie-details-wrapper,
+.movie-overview-wrapper {
   color: $grey;
 }
 
@@ -32,6 +33,12 @@
   margin-bottom: 20px;
 }
 
+.movie-overview-wrapper {
+  font-size: 13pt;
+  margin-top: 70px;
+  text-align: justify;
+}
+
 .movie-details-rate,
 .movie-details-genres,
 .movie-details-duration {
@@ -48,4 +55,10 @@
 
 .movie-details-duration {
   color: #fff;
+}
+
+.movie-release-date {
+  color: $yellow;
+  font-size: 13pt;
+  letter-spacing: 1;
 }

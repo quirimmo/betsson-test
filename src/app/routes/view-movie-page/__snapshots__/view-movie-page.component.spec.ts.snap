@@ -3,6 +3,7 @@
 exports[`ViewMoviePage Component should match the snapshot 1`] = `
 <view-movie-page
   appLoaderActions={[Function Object]}
+  movie={[Function String]}
   route={[Function Object]}
   router={[Function Object]}
 >

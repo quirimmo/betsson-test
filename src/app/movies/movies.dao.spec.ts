@@ -13,7 +13,8 @@ const rawMovie = {
 	genres: ['action, thriller'],
 	rate: '8.4',
 	length: '1h 23 m',
-	img: 'img.jpg'
+	img: 'img.jpg',
+	tmdb: 1
 };
 const movie = new Movie(
 	1,
@@ -23,7 +24,8 @@ const movie = new Movie(
 	[GenreType.Action, GenreType.Thriller],
 	'8.4',
 	'1h 23m',
-	'img.jpg'
+	'img.jpg',
+	1
 );
 const movies = [movie];
 const spyBuildInstanceFromRaw = jest

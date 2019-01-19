@@ -15,14 +15,17 @@ const movie = new Movie(
 	[GenreType.Action, GenreType.Thriller],
 	'8.4',
 	'1h 23m',
-	'img.jpg'
+	'img.jpg',
+	1
 );
 const movies = [movie];
 const mockFetchMovies = jest.fn().mockReturnValue(of(movies));
+const mockFetchMovieDetails = jest.fn().mockReturnValue(of(movie));
 const mockMoviesActions = {
 	provide: MoviesActions,
 	useValue: {
-		fetchMovies: mockFetchMovies
+		fetchMovies: mockFetchMovies,
+		fetchMovieDetails: mockFetchMovieDetails
 	}
 };
 const providers = [mockMoviesActions, MovieResolver];
@@ -35,8 +38,12 @@ describe('Movie Resolver', () => {
 		});
 		resolver = TestBed.get(MovieResolver);
 	});
+	afterEach(() => {
+		jest.clearAllMocks();
+		jest.restoreAllMocks();
+	});
 
-	it('should dispatch the action dispatchFetchMoviesThunk', () => {
+	it('should dispatch the action fetchMovies', () => {
 		resolver.resolve(route);
 		expect(mockFetchMovies).toHaveBeenCalled();
 	});
@@ -47,7 +54,14 @@ describe('Movie Resolver', () => {
 		expect(resolvedMovie).toEqual(movie);
 	});
 
+	it('should dispatch the action fetchMovieDetails', async () => {
+		route.params = { id: 1 };
+		const resolvedMovie = await resolver.resolve(route).toPromise();
+		expect(mockFetchMovieDetails).toHaveBeenCalledWith(resolvedMovie);
+	});
+
 	it('should return undefined if there is not the corresponding movie', async () => {
+		mockFetchMovieDetails.mockReturnValue(of(undefined));
 		route.params = { id: 2 };
 		const resolvedMovie = await resolver.resolve(route).toPromise();
 		expect(resolvedMovie).toBeUndefined();

@@ -87,13 +87,5 @@ describe('ViewMoviePage Component', () => {
 		it('should dispatch the stopLoading action', () => {
 			expect(mockStopLoading).toHaveBeenCalled();
 		});
-
-		it('should call the navigate method of router', async () => {
-			TestBed.get(ActivatedRoute).snapshot.data.movie = undefined;
-			componentInstance.ngOnInit();
-			componentFixture.detectChanges();
-			await componentFixture.whenStable();
-			expect(mockNavigate).toHaveBeenCalledWith(['']);
-		});
 	});
 });
