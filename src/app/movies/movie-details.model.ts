@@ -4,7 +4,7 @@ export interface MovieDetails {
 	budget: number;
 	homepage: string;
 	overview: string;
-	releaseDate: string;
+	releaseDate: Date;
 	revenue: number;
 	videos: MovieVideo[];
 }

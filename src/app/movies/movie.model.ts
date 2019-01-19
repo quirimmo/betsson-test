@@ -53,7 +53,7 @@ export default class Movie {
 			budget,
 			homepage,
 			overview,
-			releaseDate: release_date,
+			releaseDate: new Date(release_date),
 			revenue
 		};
 		return this;

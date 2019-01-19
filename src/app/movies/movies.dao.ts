@@ -1,6 +1,6 @@
 import Movie, { MovieRawData } from './movie.model';
 import { HttpClient } from '@angular/common/http';
-import { map, publishReplay } from 'rxjs/operators';
+import { map, publishReplay, tap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import { Observable, forkJoin } from 'rxjs';
 

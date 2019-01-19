@@ -16,7 +16,6 @@ export class HomePageComponent implements OnInit, AfterViewInit {
 	) {}
 
 	ngOnInit(): void {
-		console.log('resolved data:', this.route.snapshot.data.movies);
 		this.movies = this.route.snapshot.data.movies;
 	}
 
