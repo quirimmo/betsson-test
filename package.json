@@ -33,6 +33,7 @@
 		"bootstrap": "^4.2.1",
 		"core-js": "^2.5.4",
 		"font-awesome": "^4.7.0",
+		"hover.css": "^2.3.2",
 		"material-icons": "^0.3.0",
 		"redux": "^4.0.1",
 		"redux-thunk": "^2.3.0",

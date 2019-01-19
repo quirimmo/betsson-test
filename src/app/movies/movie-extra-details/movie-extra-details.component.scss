@@ -1,0 +1,34 @@
+@import './../../../colors';
+.movie-overview-wrapper {
+  color: $grey;
+  font-size: 13pt;
+  margin-top: 70px;
+  text-align: justify;
+}
+
+.movie-release-date {
+  color: $yellow;
+  font-size: 13pt;
+  letter-spacing: 1;
+}
+
+.movie-budget {
+  color: $red;
+}
+
+.movie-revenue {
+  color: $green;
+}
+
+a {
+  color: $blue;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.hvr-underline-from-center:before {
+  background: $blue;
+  height: 2px;
+}

@@ -1,0 +1,50 @@
+<section class="row movie-overview-wrapper" [@bounceInUpOnEnter]>
+	<div class="col-xl-6 offset-xl-3 col-md-8 offset-md-2 col-12 mb-3">
+		{{ movieDetails.overview }}
+	</div>
+	<div
+		class="col-xl-6 offset-xl-3 col-md-8 offset-md-2 col-12 movie-release-date mb-3 text-center"
+	>
+		Release date: {{ movieDetails.releaseDate | date: 'fullDate' }}
+	</div>
+	<div
+		class="col-xl-6 offset-xl-3 col-md-8 offset-md-2 col-12 movie-homepage mb-3 text-center"
+	>
+		Homepage:
+		<a class="hvr-underline-from-center" href="{{ movieDetails.homepage }}">{{
+			movieDetails.homepage
+		}}</a>
+	</div>
+	<div
+		class="col-xl-6 offset-xl-3 col-md-8 offset-md-2 col-12 movie-homepage mb-3"
+	>
+		<div class="row">
+			<div class="col-sm-6 text-center movie-budget">
+				Budget: {{ movieDetails.budget | currency }}
+			</div>
+			<div class="col-sm-6 text-center movie-revenue">
+				Revenue: {{ movieDetails.revenue | currency }}
+			</div>
+		</div>
+	</div>
+	<div
+		class="col-xl-6 offset-xl-3 col-md-8 offset-md-2 col-12 movie-homepage mb-3"
+	>
+		<div class="row mb-1" *ngIf="movieDetails.videos.length === 0">
+			<div class="col-12 text-center">THERE ARE NOT AVAILABLE VIDEOS</div>
+		</div>
+		<div class="row mb-1" *ngIf="movieDetails.videos.length > 0">
+			<div class="col-12 text-center">AVAILABLE VIDEOS</div>
+		</div>
+		<div class="row mb-2" *ngFor="let video of movieDetails.videos">
+			<div class="col-12 text-center">{{ video.name }}</div>
+			<div class="col-12 text-center">
+				<a
+					class="hvr-underline-from-center"
+					href="https://www.youtube.com/watch?v={{ video.key }}"
+					>https://www.youtube.com/watch?v={{ video.key }}</a
+				>
+			</div>
+		</div>
+	</div>
+</section>
