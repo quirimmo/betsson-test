@@ -6,10 +6,10 @@
 	<section class="row">
 		<div
 			*ngIf="
-				getFilteredMovies(
-					filterMovies.nameText.value,
-					filterMovies.genresSelect.value
-				).length === 0
+				isNoMoviesMessageVisible(
+					filterMovies.nameText,
+					filterMovies.genresSelect
+				)
 			"
 			class="col-12 justify-content-center"
 			[@slideInLeftOnEnter]

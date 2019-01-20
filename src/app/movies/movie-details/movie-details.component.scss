@@ -1,6 +1,5 @@
 @import './../../../colors';
-.movie-details-wrapper,
-.movie-overview-wrapper {
+.movie-details-wrapper {
   color: $grey;
 }
 
@@ -28,15 +27,13 @@
   text-shadow: three-dimensional-shadow();
 }
 
+.hvr-float-shadow:before {
+  background: radial-gradient(ellipse at center, rgba(234, 212, 48, .35) 0, rgba(234, 212, 48, 0) 80%);
+}
+
 .movie-details-description {
   font-size: 13pt;
   margin-bottom: 20px;
-}
-
-.movie-overview-wrapper {
-  font-size: 13pt;
-  margin-top: 70px;
-  text-align: justify;
 }
 
 .movie-details-rate,
@@ -55,10 +52,4 @@
 
 .movie-details-duration {
   color: #fff;
-}
-
-.movie-release-date {
-  color: $yellow;
-  font-size: 13pt;
-  letter-spacing: 1;
 }

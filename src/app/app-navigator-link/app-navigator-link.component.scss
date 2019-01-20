@@ -1,5 +1,4 @@
 @import './../../colors.scss';
-
 .back-navigation-wrapper {
 	color: $blue;
 	position: relative;
@@ -15,12 +14,14 @@
 	opacity: 0.75;
 	-webkit-transition: all 0.35s;
 	transition: all 0.35s;
+	cursor: pointer;
 }
 
 .back-navigation-wrapper:hover {
 	width: 250px;
 	border-bottom: 1px solid white;
 	opacity: 1;
+	color: white;
 }
 
 .back-navigation-arrow {
@@ -37,4 +38,8 @@
 	text-align: left;
 	top: 50px;
 	left: 100px;
+}
+
+.hvr-sweep-to-right:before {
+	background: $blue;
 }
