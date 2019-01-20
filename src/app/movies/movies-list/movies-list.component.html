@@ -2,7 +2,6 @@
 	<section>
 		<filter-movies #filterMovies [genres]="genres"></filter-movies>
 	</section>
-	<section class="mb-5"><sort-movies #sortMovies></sort-movies></section>
 	<section class="row">
 		<div
 			*ngIf="
@@ -21,21 +20,36 @@
 				Try changing your filters!
 			</p>
 		</div>
-		<article
-			class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 movie-list-item-wrapper"
-			*ngFor="
-				let movie of (getFilteredMovies(
+		<div
+			*ngIf="
+				!isMoviesListEmpty(
 					filterMovies.nameText.value,
 					filterMovies.genresSelect.value
-				) | sortMovies: sortMovies.sortBySelect.value);
-				trackBy: trackById
+				)
 			"
-			[@bounceInUpOnEnter]
-			[@bounceOutOnLeave]
+			class="col-12"
 		>
-			<a [routerLink]="['/movie', movie.id]">
-				<movie-list-item [movie]="movie"></movie-list-item>
-			</a>
-		</article>
+			<div class="row">
+				<section class="col-12 mb-5">
+					<sort-movies #sortMovies></sort-movies>
+				</section>
+				<article
+					class="col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 movie-list-item-wrapper"
+					*ngFor="
+						let movie of (getFilteredMovies(
+							filterMovies.nameText.value,
+							filterMovies.genresSelect.value
+						) | sortMovies: sortMovies.sortBySelect.value);
+						trackBy: trackById
+					"
+					[@bounceInUpOnEnter]
+					[@bounceOutOnLeave]
+				>
+					<a [routerLink]="['/movie', movie.id]">
+						<movie-list-item [movie]="movie"></movie-list-item>
+					</a>
+				</article>
+			</div>
+		</div>
 	</section>
 </section>
