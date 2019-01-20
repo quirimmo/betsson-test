@@ -5,6 +5,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 	providedIn: 'root'
 })
 export class MoviesRouterService {
+	moviesListRouteParams: {
+		genres: null;
+		name: null;
+	};
+
 	constructor(private route: ActivatedRoute, private router: Router) {}
 
 	public appendSearchNameParam(searchName: string): void {
@@ -35,12 +40,22 @@ export class MoviesRouterService {
 	}
 
 	public appendQueryParam(paramName: string, paramValue: any): void {
+		this.moviesListRouteParams = {
+			...this.moviesListRouteParams,
+			[paramName]: paramValue
+		};
 		this.router.navigate([], {
 			relativeTo: this.route,
 			queryParams: {
 				[paramName]: paramValue
 			},
 			queryParamsHandling: 'merge'
+		});
+	}
+
+	public navigateBackToMoviesList() {
+		this.router.navigate([''], {
+			queryParams: { ...this.moviesListRouteParams }
 		});
 	}
 }

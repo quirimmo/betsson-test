@@ -1,7 +1,6 @@
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { ActivatedRoute, Router } from '@angular/router';
 import { MoviesRouterService } from '../movies-router.service';
 
 @Component({
@@ -19,9 +18,7 @@ export class FilterMoviesComponent implements OnInit, OnDestroy {
 	genresChangesSubscriber: Subscription;
 
 	constructor(
-		private moviesRouterService: MoviesRouterService,
-		private route: ActivatedRoute,
-		private router: Router
+		private moviesRouterService: MoviesRouterService
 	) {}
 
 	ngOnInit(): void {

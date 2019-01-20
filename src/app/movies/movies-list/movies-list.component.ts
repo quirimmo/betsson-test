@@ -36,4 +36,24 @@ export class MoviesListComponent {
 	getFilteredMovies(name: string, genres: string[]): Movie[] {
 		return this.filterMoviesPipe.transform(this.movies, name, genres);
 	}
+
+	public isNoMoviesMessageVisible(
+		searchNameText: any,
+		searchGenresSelect: any
+	): boolean {
+		return (
+			this.isMoviesListEmpty(searchNameText.value, searchGenresSelect.value) &&
+			this.isSearchNotPristine(searchNameText, searchGenresSelect)
+		);
+	}
+
+	public isMoviesListEmpty(searchNameText, searchGenresSelect): boolean {
+		return (
+			this.getFilteredMovies(searchNameText, searchGenresSelect).length === 0
+		);
+	}
+
+	public isSearchNotPristine(searchNameText, searchGenresSelect): boolean {
+		return !searchNameText.pristine || !searchGenresSelect.pristine;
+	}
 }

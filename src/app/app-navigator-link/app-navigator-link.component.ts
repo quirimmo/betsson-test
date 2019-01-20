@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MoviesRouterService } from '../movies/movies-router.service';
 
 @Component({
 	selector: 'app-navigator-link',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
 	styleUrls: ['./app-navigator-link.component.scss']
 })
 export class AppNavigatorLinkComponent {
-	constructor() {}
+	constructor(private moviesRouterService: MoviesRouterService) {}
+
+	public navigateBackToMoviesList(): void {
+		this.moviesRouterService.navigateBackToMoviesList();
+	}
 }
