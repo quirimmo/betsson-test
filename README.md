@@ -15,7 +15,7 @@ After installed all the dependencies, you can execute the following scripts (and
 
 A really brief overview of the offered features.
 
-Once you open the application, you can start searching for the movies typing the name or selecting the genres.
+Once you open the application, you can start searching for the movies selecting the genres and typing the name.
 
 You can choose to sort the movies by the criteria you prefer.
 
