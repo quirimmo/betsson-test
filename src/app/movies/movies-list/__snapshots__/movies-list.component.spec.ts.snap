@@ -21,17 +21,6 @@ exports[`MoviesList Component should match the snapshot 1`] = `
       </filter-movies>
     </section>
     <section
-      class="mb-5"
-    >
-      <sort-movies
-        class="ng-tns-c1-0"
-      >
-        <span>
-          sort movies
-        </span>
-      </sort-movies>
-    </section>
-    <section
       class="row"
     >
       
