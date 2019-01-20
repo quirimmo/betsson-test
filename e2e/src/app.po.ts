@@ -16,7 +16,13 @@ export class AppPage {
 	);
 	seachMovieName: ElementFinder = element(by.css('#search-movie-name'));
 	selectGenresTrigger: ElementFinder = element(by.css('.mat-select-trigger'));
+	sortMoviesTrigger: ElementFinder = element(
+		by.css('.sort-movies-container .mat-select-trigger')
+	);
 	genresOptions: ElementArrayFinder = element.all(by.css('.genre-options'));
+	sortMoviesOptions: ElementArrayFinder = element.all(
+		by.css('.sort-movies-options')
+	);
 	body: ElementFinder = element(by.css('body'));
 	movieDetailsCover: ElementFinder = element(by.css('.movie-details-cover'));
 	movieDetailsTitle: ElementFinder = element(by.css('.movie-details-title'));
@@ -57,6 +63,13 @@ export class AppPage {
 		await this.seachMovieName.sendKeys(name);
 	}
 
+	async selectAllGenres(): Promise<void> {
+		await this.selectGenresTrigger.click();
+		await this.genresOptions.each(el => el.click());
+		await this.body.click();
+		await this.scrollToTop();
+	}
+
 	async selectActionGenre(): Promise<void> {
 		await this.selectGenresTrigger.click();
 		await this.genresOptions.each((el, ind) =>
@@ -76,5 +89,23 @@ export class AppPage {
 
 	async selectDeadpool(): Promise<void> {
 		await this.movieListItemsWrapper.first().click();
+	}
+
+	async sortMoviesByName(): Promise<void> {
+		await this.sortMoviesTrigger.click();
+		await this.sortMoviesOptions.each((el, ind) =>
+			ind === 2 ? el.click() : promise.Promise.resolve(true)
+		);
+		await this.body.click();
+		await this.scrollToTop();
+	}
+
+	async sortMoviesByIdDescending(): Promise<void> {
+		await this.sortMoviesTrigger.click();
+		await this.sortMoviesOptions.each((el, ind) =>
+			ind === 1 ? el.click() : promise.Promise.resolve(true)
+		);
+		await this.body.click();
+		await this.scrollToTop();
 	}
 }
