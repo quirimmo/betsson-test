@@ -79,13 +79,12 @@ describe('MoviesList Component', () => {
 			.compileComponents();
 		componentFixture = TestBed.createComponent(MoviesListComponent);
 		componentInstance = componentFixture.debugElement.componentInstance;
-		// componentInstance.sortMovies = {
-		// 	sortBySelect: {
-		// 		value: ''
-		// 	}
-		// };
 		componentInstance.movies = movies;
 	}));
+	afterEach(() => {
+		jest.clearAllMocks();
+		jest.restoreAllMocks();
+	});
 
 	it('should create the component', () => {
 		expect(componentFixture).toBeTruthy();
@@ -105,6 +104,92 @@ describe('MoviesList Component', () => {
 		it('should call the transform method of the FilterMoviesPipe', () => {
 			componentInstance.getFilteredMovies('', []);
 			expect(mockTransform).toHaveBeenCalledWith(movies, '', []);
+		});
+	});
+
+	describe('isNoMoviesMessageVisible', () => {
+		it('should return false', () => {
+			jest.spyOn(componentInstance, 'isMoviesListEmpty').mockReturnValue(true);
+			jest
+				.spyOn(componentInstance, 'isSearchNotPristine')
+				.mockReturnValue(false);
+			expect(componentInstance.isNoMoviesMessageVisible({}, {})).toBeFalsy();
+		});
+
+		it('should return false', () => {
+			jest.spyOn(componentInstance, 'isMoviesListEmpty').mockReturnValue(false);
+			jest
+				.spyOn(componentInstance, 'isSearchNotPristine')
+				.mockReturnValue(true);
+			expect(componentInstance.isNoMoviesMessageVisible({}, {})).toBeFalsy();
+		});
+
+		it('should return false', () => {
+			jest.spyOn(componentInstance, 'isMoviesListEmpty').mockReturnValue(false);
+			jest
+				.spyOn(componentInstance, 'isSearchNotPristine')
+				.mockReturnValue(false);
+			expect(componentInstance.isNoMoviesMessageVisible({}, {})).toBeFalsy();
+		});
+
+		it('should return true', () => {
+			jest.spyOn(componentInstance, 'isMoviesListEmpty').mockReturnValue(true);
+			jest
+				.spyOn(componentInstance, 'isSearchNotPristine')
+				.mockReturnValue(true);
+			expect(componentInstance.isNoMoviesMessageVisible({}, {})).toBeTruthy();
+		});
+	});
+
+	describe('isMoviesListEmpty', () => {
+		it('should return true', () => {
+			jest.spyOn(componentInstance, 'getFilteredMovies').mockReturnValue([]);
+			expect(componentInstance.isMoviesListEmpty()).toBeTruthy();
+		});
+
+		it('should return false', () => {
+			jest
+				.spyOn(componentInstance, 'getFilteredMovies')
+				.mockReturnValue(['blablabla']);
+			expect(componentInstance.isMoviesListEmpty()).toBeFalsy();
+		});
+	});
+
+	describe('isSearchNotPristine', () => {
+		it('should return false', () => {
+			expect(
+				componentInstance.isSearchNotPristine(
+					{ pristine: true },
+					{ pristine: true }
+				)
+			).toBeFalsy();
+		});
+
+		it('should return true', () => {
+			expect(
+				componentInstance.isSearchNotPristine(
+					{ pristine: false },
+					{ pristine: false }
+				)
+			).toBeTruthy();
+		});
+
+		it('should return true', () => {
+			expect(
+				componentInstance.isSearchNotPristine(
+					{ pristine: true },
+					{ pristine: false }
+				)
+			).toBeTruthy();
+		});
+
+		it('should return true', () => {
+			expect(
+				componentInstance.isSearchNotPristine(
+					{ pristine: false },
+					{ pristine: true }
+				)
+			).toBeTruthy();
 		});
 	});
 });

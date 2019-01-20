@@ -1,7 +1,13 @@
 import { TestBed, async } from '@angular/core/testing';
-import { AppComponent } from './app.component';
-import { AppLoaderComponent } from './app-loader/app-loader.component';
 import { RouterTestingModule } from '@angular/router/testing';
+
+jest.mock('./../environments/environment', () => ({
+	environment: {
+		disableAnimations: false
+	}
+}));
+import { AppLoaderComponent } from './app-loader/app-loader.component';
+import { AppComponent } from './app.component';
 
 const MockAppLoaderComponent = {
 	set: {
@@ -33,5 +39,9 @@ describe('AppComponent', () => {
 
 	it(`should have as title 'betsoon-test'`, () => {
 		expect(appComponentInstance.title).toEqual('betsoon-test');
+	});
+
+	it('should not disable the animations', () => {
+		expect(appComponentInstance.disableAnimations).toBeFalsy();
 	});
 });

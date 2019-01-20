@@ -40,7 +40,7 @@ export class FilterMoviesComponent implements OnInit, OnDestroy {
 		if (this.nameTextChangesSubscriber) {
 			this.nameTextChangesSubscriber.unsubscribe();
 		}
-		if (this.nameTextChangesSubscriber) {
+		if (this.genresChangesSubscriber) {
 			this.genresChangesSubscriber.unsubscribe();
 		}
 	}
