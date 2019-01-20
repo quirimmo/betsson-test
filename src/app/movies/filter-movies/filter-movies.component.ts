@@ -17,9 +17,7 @@ export class FilterMoviesComponent implements OnInit, OnDestroy {
 	nameTextChangesSubscriber: Subscription;
 	genresChangesSubscriber: Subscription;
 
-	constructor(
-		private moviesRouterService: MoviesRouterService
-	) {}
+	constructor(private moviesRouterService: MoviesRouterService) {}
 
 	ngOnInit(): void {
 		const searchName: string =
@@ -39,8 +37,12 @@ export class FilterMoviesComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnDestroy(): void {
-		this.nameTextChangesSubscriber.unsubscribe();
-		this.genresChangesSubscriber.unsubscribe();
+		if (this.nameTextChangesSubscriber) {
+			this.nameTextChangesSubscriber.unsubscribe();
+		}
+		if (this.nameTextChangesSubscriber) {
+			this.genresChangesSubscriber.unsubscribe();
+		}
 	}
 
 	public onChangeSearchName(): void {

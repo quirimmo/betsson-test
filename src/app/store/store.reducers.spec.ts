@@ -17,6 +17,7 @@ jest.mock('redux', () => ({
 import { StoreReducer } from './store.reducers';
 import { moviesReducer } from '../movies/movies.reducer';
 import { appLoaderReducer } from '../app-loader/app-loader.reducer';
+import { routerReducer } from '@angular-redux/router';
 
 describe('Store Reducers', () => {
 	beforeEach(() => {
@@ -37,7 +38,8 @@ describe('Store Reducers', () => {
 	it('should call the combineReducers method', () => {
 		expect(mockCombineReducers).toHaveBeenCalledWith({
 			movies: moviesReducer,
-			isLoading: appLoaderReducer
+			isLoading: appLoaderReducer,
+			router: routerReducer
 		});
 	});
 });

@@ -7,8 +7,22 @@ import {
 	MatInputModule,
 	MatSelectModule
 } from '@angular/material';
+import { MoviesRouterService } from '../movies-router.service';
 
-const providers = [];
+const mockGetSearchNameParam = jest.fn().mockReturnValue('');
+const mockGetSearchGenresParam = jest.fn().mockReturnValue(['']);
+const mockAppendSearchNameParam = jest.fn();
+const mockAppendSearchGenresParam = jest.fn();
+const mockMoviesRouterService = {
+	provide: MoviesRouterService,
+	useValue: {
+		getSearchNameParam: mockGetSearchNameParam,
+		getSearchGenresParam: mockGetSearchGenresParam,
+		appendSearchNameParam: mockAppendSearchNameParam,
+		appendSearchGenresParam: mockAppendSearchGenresParam
+	}
+};
+const providers = [mockMoviesRouterService];
 const imports = [
 	BrowserAnimationsModule,
 	FormsModule,
@@ -51,7 +65,7 @@ describe('FilterMovies Component', () => {
 		});
 
 		it('should init the genres select', () => {
-			expect(componentInstance.genresSelect.value).toEqual(['genre1']);
+			expect(componentInstance.genresSelect.value).toEqual(['']);
 		});
 	});
 });

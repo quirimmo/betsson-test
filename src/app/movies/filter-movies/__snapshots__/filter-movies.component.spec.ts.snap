@@ -4,6 +4,7 @@ exports[`FilterMovies Component should match the snapshot 1`] = `
 <filter-movies
   genres={[Function Array]}
   genresSelect={[Function FormControl]}
+  moviesRouterService={[Function Object]}
   nameText={[Function FormControl]}
 >
   <form

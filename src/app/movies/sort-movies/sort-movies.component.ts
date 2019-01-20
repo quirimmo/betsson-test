@@ -52,6 +52,8 @@ export class SortMoviesComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnDestroy(): void {
-		this.sortBySelectChangesSubscriber.unsubscribe();
+		if (this.sortBySelectChangesSubscriber) {
+			this.sortBySelectChangesSubscriber.unsubscribe();
+		}
 	}
 }
