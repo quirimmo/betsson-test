@@ -46,7 +46,7 @@ export class MoviesRouterService {
 		const isAscending: boolean =
 			typeof this.route.snapshot.queryParams.isAscending === 'undefined'
 				? null
-				: this.route.snapshot.queryParams.isAscending;
+				: this.route.snapshot.queryParams.isAscending === 'true';
 		return { sortBy, isAscending };
 	}
 

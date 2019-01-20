@@ -35,7 +35,7 @@ export class SortMoviesComponent implements OnInit, OnDestroy {
 		const { sortBy, isAscending } = this.moviesRouterService.getSortByParam();
 		const orderingOption =
 			this.orderingOptions.find(
-				o => o.value === sortBy && o.isAscending === Boolean(isAscending)
+				o => o.value === sortBy && o.isAscending === isAscending
 			) || this.orderingOptions[0];
 
 		this.sortBySelectChangesSubscriber = this.sortBySelect.valueChanges.subscribe(
