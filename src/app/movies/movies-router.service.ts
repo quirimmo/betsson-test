@@ -5,14 +5,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 	providedIn: 'root'
 })
 export class MoviesRouterService {
-	moviesListRouteParams: {
-		genres: null;
-		name: null;
-		sortBy: null;
-		isAscending: null;
+	moviesListRouteParams = {
+		genres: null,
+		name: null,
+		sortBy: null,
+		isAscending: null
 	};
 
-	constructor(private route: ActivatedRoute, private router: Router) {}
+	constructor(public route: ActivatedRoute, public router: Router) {}
 
 	public appendSearchNameParam(searchName: string): void {
 		const searchNameParam = searchName || null;
