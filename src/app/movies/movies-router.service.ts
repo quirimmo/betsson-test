@@ -8,6 +8,8 @@ export class MoviesRouterService {
 	moviesListRouteParams: {
 		genres: null;
 		name: null;
+		sortBy: null;
+		isAscending: null;
 	};
 
 	constructor(private route: ActivatedRoute, private router: Router) {}
@@ -39,12 +41,34 @@ export class MoviesRouterService {
 		}
 	}
 
-	public appendQueryParam(paramName: string, paramValue: any): void {
+	public getSortByParam(): { sortBy: string; isAscending: boolean } {
+		const sortBy: string = this.route.snapshot.queryParams.sortBy || null;
+		const isAscending: boolean =
+			typeof this.route.snapshot.queryParams.isAscending === 'undefined'
+				? null
+				: this.route.snapshot.queryParams.isAscending;
+		return { sortBy, isAscending };
+	}
+
+	public appendSortByParam(value: string, isAscending: boolean): void {
+		const sortByValueParam = value || null;
+		const sortByIsAscendingParam =
+			typeof isAscending === 'undefined' ? null : isAscending;
+
+		this.appendQueryParam('sortBy', sortByValueParam).then(() =>
+			this.appendQueryParam('isAscending', sortByIsAscendingParam)
+		);
+	}
+
+	public appendQueryParam(
+		paramName: string,
+		paramValue: any
+	): Promise<boolean> {
 		this.moviesListRouteParams = {
 			...this.moviesListRouteParams,
 			[paramName]: paramValue
 		};
-		this.router.navigate([], {
+		return this.router.navigate([], {
 			relativeTo: this.route,
 			queryParams: {
 				[paramName]: paramValue
