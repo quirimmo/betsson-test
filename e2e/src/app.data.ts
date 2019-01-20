@@ -25,6 +25,60 @@ export const MOVIE_TITLES = [
 	'Bad Boys'
 ];
 
+export const MOVIE_TITLES_SORTED_BY_NAME_ASCENDING = [
+	'American Gangster',
+	'Ant-Man',
+	'Bad Boys',
+	'Bridge of Spies',
+	'Deadpool',
+	'Fast & Furious 7',
+	'Gangster Squad',
+	'Gridiron Gang',
+	'Jurassic World',
+	'Legend',
+	'Mission: Impossible: Rogue Nation',
+	'Now You See Me',
+	'Project X',
+	'Running Scared',
+	'Southpaw',
+	'Spectre',
+	'Straight Outta Compton',
+	'The Dark Knight',
+	'The Hangover',
+	'The Man from U.N.C.L.E.',
+	'The Matrix',
+	'The Tournament',
+	'Tracers',
+	`We're the Millers`
+];
+
+export const MOVIE_TITLES_SORTED_BY_ID_DESCENDING = [
+	'Bad Boys',
+	'The Matrix',
+	'The Tournament',
+	'The Dark Knight',
+	'Project X',
+	'The Hangover',
+	'Running Scared',
+	'Tracers',
+	'Fast & Furious 7',
+	'Ant-Man',
+	'Bridge of Spies',
+	'Southpaw',
+	'Legend',
+	'Spectre',
+	'The Man from U.N.C.L.E.',
+	'Mission: Impossible: Rogue Nation',
+	'Jurassic World',
+	'Now You See Me',
+	'Gangster Squad',
+	'American Gangster',
+	'Gridiron Gang',
+	'Straight Outta Compton',
+	`We're the Millers`,
+	'Deadpool'
+];
+
 export const ACTION_MOVIE_TITLES = [
 	'Deadpool',
 	'Gangster Squad',

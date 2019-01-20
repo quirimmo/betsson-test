@@ -9,7 +9,9 @@ import {
 	DEADPOOL_DESCRIPTION,
 	DEADPOOL_RATE,
 	DEADPOOL_GENRES,
-	DEADPOOL_LENGTH
+	DEADPOOL_LENGTH,
+	MOVIE_TITLES_SORTED_BY_NAME_ASCENDING,
+	MOVIE_TITLES_SORTED_BY_ID_DESCENDING
 } from './app.data';
 
 describe('General Playgroung', () => {
@@ -21,6 +23,8 @@ describe('General Playgroung', () => {
 
 	it('should display the list of all the movies', async () => {
 		await page.navigateToHome();
+		expect(page.movieListItemsWrapper.count()).toEqual(0);
+		await page.selectAllGenres();
 		expect(page.getMovieListItemsTitles()).toEqual(MOVIE_TITLES);
 		expect(page.getMovieListItemsRates()).toEqual(MOVIE_RATES);
 		expect(page.getMovieListItemsImages()).toEqual(MOVIE_TITLES);
@@ -28,7 +32,8 @@ describe('General Playgroung', () => {
 
 	it('should filter the list of the movies', async () => {
 		await page.navigateToHome();
-		expect(page.movieListItemsWrapper.count()).toEqual(24);
+		expect(page.movieListItemsWrapper.count()).toEqual(0);
+		await page.selectAllGenres();
 		await page.setSearchMovieName('deadpool');
 		expect(page.getMovieListItemsTitles()).toEqual(['Deadpool']);
 		await page.setSearchMovieName('idonotexist');
@@ -42,8 +47,24 @@ describe('General Playgroung', () => {
 		expect(page.getMovieListItemsTitles()).toEqual(FILTERED_ACTION_MOVIES);
 	});
 
+	it('should sort the list of the movies', async () => {
+		await page.navigateToHome();
+		expect(page.movieListItemsWrapper.count()).toEqual(0);
+		await page.selectAllGenres();
+		expect(page.getMovieListItemsTitles()).toEqual(MOVIE_TITLES);
+		await page.sortMoviesByName();
+		expect(page.getMovieListItemsTitles()).toEqual(
+			MOVIE_TITLES_SORTED_BY_NAME_ASCENDING
+		);
+		await page.sortMoviesByIdDescending();
+		expect(page.getMovieListItemsTitles()).toEqual(
+			MOVIE_TITLES_SORTED_BY_ID_DESCENDING
+		);
+	});
+
 	it('should open the movie details and navigate back to the movies', async () => {
 		await page.navigateToHome();
+		await page.selectAllGenres();
 		await page.selectDeadpool();
 		expect(browser.getCurrentUrl()).toContain('/movie/1');
 		expect(page.movieDetailsCover.getAttribute('src')).toContain(

@@ -8,7 +8,7 @@
 				placeholder="Sort by"
 				name="movie-sort-by"
 			>
-				<mat-option *ngFor="let item of orderingOptions" [value]="item">
+				<mat-option class="sort-movies-options" *ngFor="let item of orderingOptions" [value]="item">
 					{{ item.label }}
 				</mat-option>
 			</mat-select>

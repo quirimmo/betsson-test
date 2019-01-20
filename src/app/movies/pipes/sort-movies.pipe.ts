@@ -59,9 +59,10 @@ export class SortMoviesPipe implements PipeTransform {
 	}
 
 	sortByDuration(isAscending: boolean): (a: Movie, b: Movie) => number {
+		const that: SortMoviesPipe = this;
 		return function(a: Movie, b: Movie) {
-			const [aHours, aMinutes] = getHoursAndMinutes(a.length);
-			const [bHours, bMinutes] = getHoursAndMinutes(b.length);
+			const [aHours, aMinutes] = that.getHoursAndMinutesFromDuration(a.length);
+			const [bHours, bMinutes] = that.getHoursAndMinutesFromDuration(b.length);
 			const hoursDifference = aHours - bHours;
 			const minutesDifference = aMinutes - bMinutes;
 			if (hoursDifference !== 0) {
@@ -69,10 +70,10 @@ export class SortMoviesPipe implements PipeTransform {
 			}
 			return isAscending ? minutesDifference : -minutesDifference;
 		};
+	}
 
-		function getHoursAndMinutes(duration: string): [number, number] {
-			const [hours, minutes] = duration.match(/\d+/g);
-			return [+hours, +minutes];
-		}
+	getHoursAndMinutesFromDuration(duration: string): [number, number] {
+		const [hours, minutes] = duration.match(/\d+/g);
+		return [+hours, +minutes];
 	}
 }

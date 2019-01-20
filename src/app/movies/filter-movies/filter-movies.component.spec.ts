@@ -67,5 +67,65 @@ describe('FilterMovies Component', () => {
 		it('should init the genres select', () => {
 			expect(componentInstance.genresSelect.value).toEqual(['']);
 		});
+
+		it('should call the getSearchNameParam of moviesRouterService', () => {
+			expect(mockGetSearchNameParam).toHaveBeenCalled();
+		});
+
+		it('should call the getSearchGenresParam of moviesRouterService', () => {
+			expect(mockGetSearchGenresParam).toHaveBeenCalled();
+		});
+	});
+
+	describe('OnDestroy', () => {
+		it('should unsubscribe to nameTextChangesSubscriber', () => {
+			const spy = jest.fn();
+			componentInstance.nameTextChangesSubscriber = {
+				unsubscribe: spy
+			};
+			componentInstance.ngOnDestroy();
+			expect(spy).toHaveBeenCalled();
+		});
+
+		it('should unsubscribe to genresChangesSubscriber', () => {
+			const spy = jest.fn();
+			componentInstance.genresChangesSubscriber = {
+				unsubscribe: spy
+			};
+			componentInstance.ngOnDestroy();
+			expect(spy).toHaveBeenCalled();
+		});
+	});
+
+	describe('onChangeSearchName', () => {
+		it('should call onChangeSearchGenres', () => {
+			componentInstance.nameText.value = 'hello world';
+			componentInstance.onChangeSearchName();
+			expect(mockAppendSearchNameParam).toHaveBeenCalledWith('hello world');
+		});
+
+		it('should call the onChangeSearchName method if the value of searchName changes', async () => {
+			const spy = jest.spyOn(componentInstance, 'onChangeSearchName');
+			componentInstance.nameText.setValue('hello world');
+			componentFixture.detectChanges();
+			await componentFixture.whenStable();
+			expect(spy).toHaveBeenCalled();
+		});
+	});
+
+	describe('onChangeSearchGenres', () => {
+		it('should call onChangeSearchGenres', () => {
+			componentInstance.genresSelect.value = 'hello world';
+			componentInstance.onChangeSearchGenres();
+			expect(mockAppendSearchGenresParam).toHaveBeenCalledWith('hello world');
+		});
+
+		it('should call the onChangeSearchGenres method if the value of genresSelect changes', async () => {
+			const spy = jest.spyOn(componentInstance, 'onChangeSearchGenres');
+			componentInstance.genresSelect.setValue(['hello world']);
+			componentFixture.detectChanges();
+			await componentFixture.whenStable();
+			expect(spy).toHaveBeenCalled();
+		});
 	});
 });
